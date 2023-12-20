@@ -7,7 +7,7 @@
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "solid-info",
+ "icon": "help",
  "idx": 0,
  "indicator_color": "",
  "is_hidden": 0,
@@ -348,7 +348,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-12-20 01:39:49.822779",
+ "modified": "2023-12-20 16:12:38.571662",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "Developer",
