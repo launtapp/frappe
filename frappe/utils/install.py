@@ -266,12 +266,12 @@ def add_standard_navbar_items():
 			"action": "frappe.ui.toolbar.show_shortcuts(event)",
 			"is_standard": 1,
 		},
-		{
-			"item_label": "Frappe Support",
-			"item_type": "Route",
-			"route": "https://frappe.io/support",
-			"is_standard": 1,
-		},
+		# {
+		# 	"item_label": "Frappe Support",
+		# 	"item_type": "Route",
+		# 	"route": "https://frappe.io/support",
+		# 	"is_standard": 1,
+		# },
 	]
 
 	navbar_settings.settings_dropdown = []

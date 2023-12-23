@@ -147,8 +147,8 @@
    "type": "Link"
   }
  ],
- "modified": "2023-12-20 01:39:47.959633",
- "modified_by": "Administrator",
+ "modified": "2023-12-22 02:15:43.801830",
+ "modified_by": "somchai@gmail.com",
  "module": "Core",
  "name": "Users",
  "number_cards": [],
@@ -158,7 +158,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 12.0,
+ "sequence_id": 11.0,
  "shortcuts": [
   {
    "label": "User",

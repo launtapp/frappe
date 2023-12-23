@@ -122,9 +122,10 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 		return filters.filter((f) => valid_fields.includes(f[1])).uniqBy((f) => f[1]);
 	}
 
-	setup_page() {
+	async setup_page() {
 		this.parent.list_view = this;
 		super.setup_page();
+		await this.make_tours()
 	}
 
 	setup_page_head() {
@@ -1398,6 +1399,42 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 				this.make_new_doc();
 			}
 		});
+	}
+
+	async action_tour(){
+		let filters = {}
+		let order_by = 'reference_doctype desc'
+		const view = this.view
+		filters.reference_doctype = ["in", ["", this.doctype]]
+		filters.ui_tour = 1
+		filters.view_name = 'List'
+		filters.list_name = view
+
+		if(view == 'Report'){
+			filters.report_name = ["in", ["", this?.report_doc?.name]]
+			order_by = 'report_name desc'
+		}
+
+		await frappe.db.get_list('Form Tour', {
+			filters: filters,
+			fields: ['*'],
+			order_by: order_by
+		}).then(tours => {
+			if(tours?.length <= 0) return
+			const onboarding_tour = new frappe.ui.OnboardingTour()
+			onboarding_tour.init({tour_name: tours[0].name})
+		})
+	}
+
+	make_tours() {
+		this.show_tour = this.page.add_action_icon(
+			"help",
+			async () => {
+				await this.action_tour()
+			},
+			"",
+			__("Show Tour")
+		);
 	}
 
 	setup_tag_event() {

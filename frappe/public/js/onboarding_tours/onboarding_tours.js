@@ -10,7 +10,7 @@ frappe.ui.OnboardingTour = class OnboardingTour {
 			className: "frappe-driver",
 			allowClose: false,
 			padding: 10,
-			overlayClickNext: false,
+			overlayClickNext: true,
 			keyboardControl: false,
 			nextBtnText: __("Next"),
 			prevBtnText: __("Previous"),
@@ -265,6 +265,7 @@ frappe.ui.init_onboarding_tour = () => {
 	typeof frappe.boot.user.onboarding_status == "undefined" &&
 		frappe.boot.user.onboarding_status == {};
 	let route = frappe.router.current_route;
+
 	if (route[0] === "") return;
 
 	let tour_name;

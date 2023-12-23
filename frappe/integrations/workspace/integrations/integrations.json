@@ -199,8 +199,8 @@
    "type": "Link"
   }
  ],
- "modified": "2023-12-20 01:39:50.505427",
- "modified_by": "Administrator",
+ "modified": "2023-12-22 02:15:45.146636",
+ "modified_by": "somchai@gmail.com",
  "module": "Integrations",
  "name": "Integrations",
  "number_cards": [],
@@ -210,7 +210,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 30.0,
+ "sequence_id": 19.0,
  "shortcuts": [],
  "title": "Integrations"
 }

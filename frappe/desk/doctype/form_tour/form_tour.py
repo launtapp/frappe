@@ -22,10 +22,9 @@ class FormTour(Document):
 		dashboard_name: DF.Link | None
 		first_document: DF.Check
 		include_name_field: DF.Check
+		is_after_created: DF.Check
 		is_standard: DF.Check
-		list_name: DF.Literal[
-			"List", "Report", "Dashboard", "Kanban", "Gantt", "Calendar", "File", "Image", "Inbox", "Map"
-		]
+		list_name: DF.Literal["List", "Report", "Dashboard", "Kanban", "Gantt", "Calendar", "File", "Image", "Inbox", "Map"]
 		module: DF.Link | None
 		new_document_form: DF.Check
 		page_name: DF.Link | None

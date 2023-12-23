@@ -1,19 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<style>
-		polygon {
-			fill: #171717;
-		}
-		@media (prefers-color-scheme: dark) {
-			polygon {
-				fill: #ffffff;
-			}
-		}
-    </style>
-    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="favicon" transform="translate(110.000000, 66.000000)" fill="#171717" fill-rule="nonzero">
-            <polygon id="Path" points="0 0 0 47.1807692 57.2278846 47.1807692 167.313462 47.1807692 179.203846 47.1807692 179.203846 0"></polygon>
-            <polygon id="Path" points="0 120.297115 0 268.052885 57.2278846 268.052885 57.2278846 167.477885 167.313462 167.477885 167.313462 120.297115 57.2278846 120.297115"></polygon>
-        </g>
-    </g>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M0 2500 l0 -2500 2500 0 2500 0 0 2500 0 2500 -2500 0 -2500 0 0
+-2500z m2790 1195 l0 -265 -77 0 c-92 0 -148 -23 -178 -72 -19 -32 -20 -56
+-23 -916 l-2 -882 172 0 c209 0 242 10 277 82 18 38 21 62 21 166 l0 122 380
+0 380 0 0 -450 0 -450 -1175 0 -1175 0 2 263 3 262 92 5 c103 6 135 21 165 81
+17 32 18 93 18 859 0 800 -1 826 -20 857 -32 53 -64 67 -164 73 l-91 5 -3 263
+-2 262 700 0 700 0 0 -265z"/>
+</g>
 </svg>

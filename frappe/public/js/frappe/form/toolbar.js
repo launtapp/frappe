@@ -274,7 +274,92 @@ frappe.ui.form.Toolbar = class Toolbar {
 		if (frappe.boot.desk_settings.form_sidebar) {
 			this.make_navigation();
 			this.make_menu_items();
+			this.make_tours()
 		}
+	}
+
+	tour_by_type(tour){
+		const is_ui = tour.ui_tour
+		const tour_name = tour.name
+		if(is_ui){
+			const onboarding_tour = new frappe.ui.OnboardingTour()
+			onboarding_tour.init({tour_name})
+		}else{
+			this.frm.tour
+			.init({ tour_name })
+			.then(() => this.frm.tour.start());
+		}
+	}
+
+	async action_tour(){
+		let filters = {}
+		const view = "Form"
+		filters.reference_doctype = ["in", ["", this.frm.doctype]]
+		let order_by = 'reference_doctype desc'
+		if(view == "Form" && this.frm.is_new() == 1){
+			filters.ui_tour = 0
+		}
+		else if(view == "Form" && this.frm.is_new() == 0){
+			// filters.ui_tour = 1
+		}
+		else{
+			filters.view_name = view
+		}
+		await frappe.db.get_list('Form Tour', {
+			filters: filters,
+			fields: ['*'],
+			order_by: order_by
+		}).then(tour_list => {
+			let tours = tour_list
+			if(tours?.length > 1){
+				tours = tours.filter(t => {
+					return t.name != "Form UI"
+				})
+			}
+			console.log(tours)
+			if(tours?.length <= 0) return
+			let dialog = new frappe.ui.Dialog({
+				title: __("Show Tour"),
+				fields: [
+					{
+						fieldtype: "Select",
+						fieldname: "tour_name",
+						label: __("Tour"),
+						options: tours.map(t => t.name),
+						default: tours[0].name,
+						reqd: 1,
+					},
+				],
+				primary_action_label: __("Show"),
+				primary_action: ({ tour_name }) => {
+					dialog.hide();
+					this.tour_by_type(tours.find(t => t.name == tour_name))
+				},
+			});
+
+			if(this.frm.is_new() == 1){
+				this.frm.tour
+				.init({ tour_name: this.frm.doctype })
+				.then(() => this.frm.tour.start());
+			}else{
+				if(tours?.length == 1){
+					this.tour_by_type(tours[0])
+				}else{
+					dialog.show()
+				}
+			}	
+		})
+	}
+
+	make_tours() {
+		this.show_tour = this.page.add_action_icon(
+			"help",
+			async () => {
+				await this.action_tour()
+			},
+			"",
+			__("Show Tour")
+		);
 	}
 
 	make_navigation() {

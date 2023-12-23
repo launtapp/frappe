@@ -23,6 +23,7 @@
   "save_on_complete",
   "first_document",
   "include_name_field",
+  "is_after_created",
   "page_route",
   "section_break_3",
   "steps"
@@ -75,8 +76,7 @@
    "fieldname": "module",
    "fieldtype": "Link",
    "label": "Module",
-   "options": "Module Def",
-   "read_only": 1
+   "options": "Module Def"
   },
   {
    "fieldname": "column_break_6",
@@ -174,11 +174,17 @@
    "fieldname": "new_document_form",
    "fieldtype": "Check",
    "label": "New Document Form"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_after_created",
+   "fieldtype": "Check",
+   "label": "Is After Created"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-28 20:24:42.594360",
+ "modified": "2023-12-21 22:05:54.207288",
  "modified_by": "Administrator",
  "module": "Desk",
  "name": "Form Tour",

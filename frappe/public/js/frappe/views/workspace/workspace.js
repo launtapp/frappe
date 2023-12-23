@@ -1,5 +1,6 @@
 import EditorJS from "@editorjs/editorjs";
 import Undo from "editorjs-undo";
+import '../../../onboarding_tours/onboarding_tours.js';
 
 frappe.standard_pages["Workspaces"] = function () {
 	var wrapper = frappe.container.add_page("Workspaces");
@@ -49,6 +50,7 @@ frappe.views.Workspace = class Workspace {
 		this.prepare_container();
 		this.setup_pages();
 		this.register_awesomebar_shortcut();
+		this.make_tours()
 	}
 
 	prepare_container() {
@@ -426,6 +428,35 @@ frappe.views.Workspace = class Workspace {
 		} else {
 			this.initialize_editorjs(this.content);
 		}
+	}
+
+	async action_tour(){
+		let filters = {}
+		let order_by = 'workspace_name desc'
+		filters.ui_tour = 1
+		filters.view_name = 'Workspaces'
+		filters.workspace_name = ["in", ["", this.current_page.name]]
+
+		await frappe.db.get_list('Form Tour', {
+			filters: filters,
+			fields: ['*'],
+			order_by: order_by
+		}).then(tours => {
+			if(tours?.length <= 0) return
+			const onboarding_tour = new frappe.ui.OnboardingTour()
+			onboarding_tour.init({tour_name: tours[0].name})
+		})
+	}
+
+	make_tours() {
+		this.show_tour = !this.show_tour && this.page.add_action_icon(
+			"help",
+			async () => {
+				await this.action_tour()
+			},
+			"",
+			__("Show Tour")
+		);
 	}
 
 	setup_actions(page) {
