@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_rename": 1,
  "autoname": "Prompt",
  "creation": "2020-04-24 13:58:14.948024",
  "doctype": "DocType",
@@ -82,10 +83,11 @@
   }
  ],
  "links": [],
- "modified": "2023-08-28 22:24:02.233272",
+ "modified": "2023-12-24 19:42:45.290299",
  "modified_by": "Administrator",
  "module": "Desk",
  "name": "Module Onboarding",
+ "naming_rule": "Set by user",
  "owner": "Administrator",
  "permissions": [
   {
